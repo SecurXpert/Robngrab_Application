@@ -5,7 +5,7 @@ import { useAppliedJobs } from './useAppliedJobs';
 import StatusFilterSidebar from './StatusFilterSidebar';
 import SearchAndFilterHeader from './SearchAndFilterHeader';
 import JobTable from './JobTable';
-import FilterPopup from '../../components/FilterPopup';
+import FilterPopup from '../../../components/FilterPopup';
 
 export default function AppliedJobs() {
   const {

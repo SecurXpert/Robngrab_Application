@@ -265,7 +265,7 @@ function InterviewCard({ interview }) {
   const { jobTitle, company, status, date, time, type, originalTime } = interview;
 
   const handleClick = () => {
-    router.push('/candidate/interview-management/interview-details');
+    router.push('/candidate/interview-management/details');
   };
 
   return (
