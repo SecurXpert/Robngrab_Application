@@ -1,0 +1,302 @@
+/* Resume Builder Fix Styles */
+
+/* Fix for slider styling */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #d1d5db;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.slider:hover {
+  background: #9ca3af;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+
+/* Fix for file upload area */
+.file-upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: #f9fafb;
+}
+
+.file-upload-area:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.file-upload-area.dragover {
+  border-color: #3b82f6;
+  background: #dbeafe;
+}
+
+/* Fix for toggle switches */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d1d5db;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #3b82f6;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Fix for form validation */
+.form-input.error {
+  border-color: #ef4444;
+}
+
+.form-input.error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Fix for responsive layout */
+@media (max-width: 640px) {
+  .resume-builder-container {
+    padding: 16px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .button-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .button-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Fix for tab navigation */
+.tab-navigation {
+  display: flex;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #374151;
+}
+
+.tab-button.active {
+  background: white;
+  color: #3b82f6;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Fix for card components */
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+/* Fix for loading states */
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f4f6;
+  border-radius: 50%;
+  border-top-color: #3b82f6;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-button {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.loading-button .btn-text {
+  visibility: hidden;
+}
+
+.loading-button .loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Fix for focus states */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.focus-ring:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Fix for dark mode support */
+@media (prefers-color-scheme: dark) {
+  .resume-preview {
+    background: #1f2937;
+    color: #f9fafb;
+    border-color: #374151;
+  }
+  
+  .resume-name {
+    color: #f9fafb;
+  }
+  
+  .resume-title {
+    color: #9ca3af;
+  }
+  
+  .resume-contact {
+    color: #d1d5db;
+  }
+  
+  .resume-section-title {
+    color: #f9fafb;
+    border-left-color: #60a5fa;
+  }
+  
+  .resume-item-title {
+    color: #f9fafb;
+  }
+  
+  .resume-item-company {
+    color: #9ca3af;
+  }
+  
+  .resume-item-date {
+    color: #9ca3af;
+  }
+  
+  .resume-item-description {
+    color: #d1d5db;
+  }
+  
+  .resume-skill {
+    background: #374151;
+    color: #d1d5db;
+  }
+}
