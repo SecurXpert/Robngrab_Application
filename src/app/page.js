@@ -22,7 +22,6 @@ export default function Home() {
       {/* Hero Section */}
       <Header/>
       <HeroSection />
-
       <BrowseCategories />
       <RecentJobs />
       <AboutJob />

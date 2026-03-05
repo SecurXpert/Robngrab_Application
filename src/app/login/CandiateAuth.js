@@ -8,6 +8,11 @@ export default function CandiateAuth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMFA, setRememberMFA] = useState(false);
+  const [showMFAModal, setShowMFAModal] = useState(false);
+  const [showReenrollMFAModal, setShowReenrollMFAModal] = useState(false);
+  const [mfaCode, setMfaCode] = useState('');
+  const [useBackupCode, setUseBackupCode] = useState(false);
+  const [reenrollBackupCode, setReenrollBackupCode] = useState('');
   const router = useRouter();
 
   const handleSubmit = (e) => {
@@ -83,8 +88,7 @@ export default function CandiateAuth() {
                   onChange={(e) => {
                     setRememberMFA(e.target.checked);
                     if (e.target.checked) {
-                      // Navigate directly to 3rd stage when MFA is enabled
-                      window.location.href = '/signup?stage=3';
+                      setShowMFAModal(true);
                     }
                   }}
                   className="w-4 h-4 mr-2 accent-blue-500"
@@ -171,6 +175,138 @@ export default function CandiateAuth() {
           </div>
         </div>
       </div>
+
+      {/* MFA Verification Modal */}
+      {showMFAModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+            {/* Header */}
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">{useBackupCode ? 'Backup Code' : 'MFA Verification'}</h2>
+            <p className="text-sm text-gray-600 mb-6">{useBackupCode ? 'Enter your backup code' : 'Enter 6-digit code from your authenticator app'}</p>
+
+            {/* Code Input */}
+            <div className="mb-6">
+              <input
+                type="text"
+                value={mfaCode}
+                onChange={(e) => setMfaCode(e.target.value)}
+                placeholder={useBackupCode ? 'Enter backup code' : '000000'}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-center text-xl font-mono focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              />
+            </div>
+
+            {/* Backup Code Option */}
+            <div className="mb-6">
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={useBackupCode}
+                  onChange={(e) => {
+                    setUseBackupCode(e.target.checked);
+                    setMfaCode(''); // Clear code when switching modes
+                  }}
+                  className="w-4 h-4 mr-2 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                />
+                <span className="text-sm text-gray-700">Use backup code instead</span>
+              </label>
+            </div>
+
+            {/* Lost Phone Link */}
+            <div className="mb-6">
+              <button
+                onClick={() => {
+                  setShowMFAModal(false);
+                  setShowReenrollMFAModal(true);
+                  setMfaCode('');
+                  setUseBackupCode(false);
+                }}
+                className="text-blue-500 text-sm hover:underline"
+              >
+                Lost your phone? Re-enroll with backup code
+              </button>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex space-x-4">
+              <button
+                onClick={() => {
+                  setShowMFAModal(false);
+                  setRememberMFA(false);
+                  setMfaCode('');
+                  setUseBackupCode(false);
+                }}
+                className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  // Handle MFA verification logic here
+                  console.log('MFA Code:', mfaCode);
+                  console.log('Use Backup Code:', useBackupCode);
+                  setShowMFAModal(false);
+                  setMfaCode('');
+                  setUseBackupCode(false);
+                }}
+                className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                Verify
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Re-enroll MFA Modal */}
+      {showReenrollMFAModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+            {/* Header */}
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Re-enroll MFA</h2>
+            <p className="text-sm text-gray-600 mb-6">Enter your backup code to start re-enrollment. You'll need to scan a new QR code with your authenticator app.</p>
+
+            {/* Backup Code Input */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Enter Backup Code
+              </label>
+              <input
+                type="text"
+                value={reenrollBackupCode}
+                onChange={(e) => setReenrollBackupCode(e.target.value)}
+                placeholder="Enter your backup code"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              />
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex space-x-4">
+              <button
+                onClick={() => {
+                  setShowReenrollMFAModal(false);
+                  setReenrollBackupCode('');
+                  setRememberMFA(false);
+                }}
+                className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  // Handle re-enrollment logic here
+                  console.log('Re-enroll Backup Code:', reenrollBackupCode);
+                  setShowReenrollMFAModal(false);
+                  setReenrollBackupCode('');
+                  // You can add navigation to QR code scanning page here
+                }}
+                className="flex-1 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              >
+                Start Re-enrollment
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
