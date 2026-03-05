@@ -4,6 +4,7 @@ import WelcomeSection from './components/WelcomeSection';
 import StatsCards from './components/StatsCards';
 import RecentActivities from './components/RecentActivities';
 import ProfileCompleteness from './components/ProfileCompleteness';
+<<<<<<< HEAD
 import { FiCalendar, FiBell, FiUpload } from 'react-icons/fi';
 
 const CandidateDashboard = () => {
@@ -34,6 +35,13 @@ const CandidateDashboard = () => {
     }
   ];
 
+=======
+import InterviewManagement from './components/InterviewManagement';
+import Notifications from './components/Notifications';
+import UploadCV from './components/UploadCV.js';
+
+const CandidateDashboard = () => {
+>>>>>>> origin/prakash
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -43,6 +51,7 @@ const CandidateDashboard = () => {
           <WelcomeSection />
           <StatsCards />
           
+<<<<<<< HEAD
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
             <div className="lg:col-span-2">
               <RecentActivities />
@@ -70,6 +79,18 @@ const CandidateDashboard = () => {
                   </div>
                 </div>
               ))}
+=======
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+            <div className="space-y-6">
+              <ProfileCompleteness />
+              <InterviewManagement />
+              <UploadCV />
+            </div>
+            
+            <div className="space-y-6">
+              <RecentActivities />
+              <Notifications />
+>>>>>>> origin/prakash
             </div>
           </div>
         </div>

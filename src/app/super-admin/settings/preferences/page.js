@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 // Preferences page for superadmin settings
 
 const selectStyles =
-  'w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
+  'w-1/2 rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
 
 const checkboxStyles = 'h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500';
 
@@ -86,7 +86,7 @@ export default function PreferencesPage() {
             </div>
 
             <form className="px-6 pb-6 pt-4 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 <div>
                   <label className="block text-xs font-medium text-slate-700 mb-1.5">Language</label>
                   <select defaultValue="en-us" className={selectStyles}>

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 
 const inputStyles =
-  'w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
+  'w-1/2 rounded-md border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
 
 const user = {
   initials: 'SA',
@@ -62,7 +62,7 @@ export default function SettingsPage() {
             </Link>
           </div>
 
-          <section className="bg-white rounded-2xl shadow-sm border border-slate-200 max-w-3xl mx-auto">
+          <section className="bg-white rounded-2xl shadow-sm border border-slate-200 max-w-1xl mx-auto">
             <header className="px-6 pt-6 pb-6 border-b border-slate-200">
               <h2 className="text-sm font-semibold text-slate-900 mb-4">Personal Details</h2>
               <div className="flex items-center gap-4">
@@ -84,7 +84,7 @@ export default function SettingsPage() {
 
             <form className="px-6 py-6 space-y-5">
               {/* First & last name on the same row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                 <TextField
                   id="firstName"
                   label="First Name"
