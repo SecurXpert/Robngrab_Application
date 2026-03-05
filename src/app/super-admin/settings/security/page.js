@@ -146,7 +146,7 @@ export default function SecurityPage() {
             </Link>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-3x1 mx-auto space-y-6">
             <SectionCard>
               <SectionHeader
                 title="Multi-Factor Authentication"
@@ -185,6 +185,22 @@ export default function SecurityPage() {
                 {TRUSTED_DEVICES.map((device) => (
                   <TrustedDeviceRow key={device.id} device={device} />
                 ))}
+              </div>
+            </SectionCard>
+
+            <SectionCard>
+              <SectionHeader
+                title="Active Sessions"
+                description="Manage your active sessions across different devices and browsers."
+              />
+              <div className="px-6 py-5 space-y-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="font-medium text-gray-800">Safari on iOS</div>
+                    <div className="text-sm text-gray-500">New York, US • Last active 2 hours ago</div>
+                  </div>
+                  <button className="text-sm font-medium text-red-600 hover:text-red-700">Remove</button>
+                </div>
               </div>
             </SectionCard>
           </div>
