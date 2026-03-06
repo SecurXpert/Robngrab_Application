@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Header from '../../../../dashboard/components/Header';
-import InterviewDetails from '../InterviewDetails';
+import InterviewDetails from '../../InterviewDetails';
 
 export default function InterviewDetailsPage() {
   const params = useParams();
