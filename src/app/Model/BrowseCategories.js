@@ -11,8 +11,14 @@ import {
   FiTool
 } from 'react-icons/fi';
 import { FaSeedling } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
 
 export default function BrowseCategories() {
+  const router = useRouter();
+  
+  const handleCategoryClick = (categoryName) => {
+    router.push(`/jobs?category=${encodeURIComponent(categoryName)}`);
+  };
   const categories = [
     {
       name: 'Agriculture',
@@ -72,6 +78,7 @@ export default function BrowseCategories() {
               return (
                 <div
                   key={index}
+                  onClick={() => handleCategoryClick(category.name)}
                   className="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group shadow-sm aspect-square flex flex-col justify-center"
                 >
                   {/* Icon */}
@@ -111,6 +118,7 @@ export default function BrowseCategories() {
                 return (
                   <div
                     key={index}
+                    onClick={() => handleCategoryClick(category.name)}
                     className="bg-white rounded-xl p-4 sm:p-6 md:p-8 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group shadow-sm aspect-square flex flex-col justify-center"
                   >
                     {/* Icon */}
@@ -148,6 +156,7 @@ export default function BrowseCategories() {
                 return (
                   <div
                     key={index + 3}
+                    onClick={() => handleCategoryClick(category.name)}
                     className="bg-white rounded-xl p-4 sm:p-6 md:p-8 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group shadow-sm aspect-square flex flex-col justify-center"
                   >
                     {/* Icon */}
@@ -185,6 +194,7 @@ export default function BrowseCategories() {
                 return (
                   <div
                     key={index + 6}
+                    onClick={() => handleCategoryClick(category.name)}
                     className="bg-white rounded-xl p-4 sm:p-6 md:p-8 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group shadow-sm aspect-square flex flex-col justify-center"
                   >
                     {/* Icon */}

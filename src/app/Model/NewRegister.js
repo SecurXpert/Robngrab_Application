@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useRouter } from 'next/navigation';
 
 export default function NewRegister() {
+  const router = useRouter();
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
@@ -30,7 +32,10 @@ export default function NewRegister() {
                     Become a candidate
                   </h2>
                   {/* Button */}
-                  <button className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition-colors duration-300 font-medium flex items-center gap-0">
+                  <button 
+                    onClick={() => router.push('/signup')}
+                    className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition-colors duration-300 font-medium flex items-center gap-0 cursor-pointer border-none"
+                  >
                     Register Now
                     <IoIosArrowRoundForward size={25} />
                   </button>
@@ -61,7 +66,10 @@ export default function NewRegister() {
                   </h2>
 
                   {/* Button */}
-                  <button className="bg-white text-blue-500 px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-300 font-medium flex items-center gap-0">
+                  <button 
+                    onClick={() => router.push('/signup')}
+                    className="bg-white text-blue-500 px-6 py-3 rounded-md hover:bg-gray-100 transition-colors duration-300 font-medium flex items-center gap-0 cursor-pointer border-none"
+                  >
                     Register Now
                     <IoIosArrowRoundForward size={27} />
                   </button>

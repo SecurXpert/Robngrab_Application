@@ -1,27 +1,49 @@
 'use client';
 
-import { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import Header from '@/app/super-admin/Model/Header';
 import Sidebar from '@/app/super-admin/Model/Sidebar';
 
 export default function SuperAdminLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   // derive activePage from path segments (e.g. /super-admin/roles -> "roles")
   let activePage = '';
+  let isAuthPage = false;
   if (pathname) {
     const parts = pathname.split('/').filter(Boolean);
-    // parts[0] === 'super-admin', parts[1] is the page key
     activePage = parts[1] || '';
-
-    // If we're on the root or a login/signup page, don't render header/sidebar
     const authPages = ['', 'login', 'signup'];
     if (parts.length <= 1 || authPages.includes(activePage)) {
-      // simply return children untouched
-      return <>{children}</>;
+      isAuthPage = true;
     }
+  }
+
+  useEffect(() => {
+    if (!isAuthPage) {
+      const token = localStorage.getItem('superAdminToken');
+      if (!token) {
+        router.push('/super-admin');
+      } else {
+        setAuthorized(true);
+      }
+    }
+  }, [pathname, isAuthPage, router]);
+
+  if (isAuthPage) {
+    return <>{children}</>;
+  }
+
+  if (!authorized) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-gray-500 font-medium">Checking authorization...</div>
+      </div>
+    );
   }
 
   return (

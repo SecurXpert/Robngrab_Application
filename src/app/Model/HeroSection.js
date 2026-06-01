@@ -3,11 +3,21 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { FiSearch, FiChevronDown } from 'react-icons/fi';
+import { useRouter } from 'next/navigation';
 
 export default function HeroSection() {
   const [jobTitle, setJobTitle] = useState('');
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('');
+  const router = useRouter();
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (jobTitle) params.append('title', jobTitle);
+    if (location) params.append('location', location);
+    if (category) params.append('category', category);
+    router.push(`/jobs?${params.toString()}`);
+  };
 
   return (
     <section className="relative overflow-hidden overflow-x-hidden">
@@ -84,7 +94,10 @@ export default function HeroSection() {
 
             {/* Search Button */}
             <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-              <button className="w-full h-full bg-[#0163D7] hover:bg-blue-600 text-white py-3 sm:py-4 lg:py-6 font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center transition-colors duration-200 border-none cursor-pointer">
+              <button 
+                onClick={handleSearch}
+                className="w-full h-full bg-[#0163D7] hover:bg-blue-600 text-white py-3 sm:py-4 lg:py-6 font-semibold text-sm sm:text-base lg:text-lg flex items-center justify-center transition-colors duration-200 border-none cursor-pointer"
+              >
                 <FiSearch className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 <span className="hidden sm:inline">Search Job</span>
                 <span className="sm:hidden">Search</span>

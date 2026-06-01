@@ -1,8 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function AboutJob() {
+  const router = useRouter();
   return (
     <section className="py-8 pb-10 bg-white px-6 mt-8">
       <div className="max-w-6xl mx-auto">
@@ -45,10 +47,16 @@ export default function AboutJob() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="bg-[#0163D6] text-white px-6 sm:px-8 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium text-sm sm:text-base border-none cursor-pointer">
+              <button 
+                onClick={() => router.push('/jobs')}
+                className="bg-[#0163D6] text-white px-6 sm:px-8 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium text-sm sm:text-base border-none cursor-pointer"
+              >
                 Search Job
               </button>
-              <button className="text-[#0163D6] px-6 sm:px-8 py-2 rounded-md hover:bg-blue-50 transition-colors duration-300 font-medium text-sm sm:text-base bg-transparent cursor-pointer underline">
+              <button 
+                onClick={() => router.push('/jobs')}
+                className="text-[#0163D6] px-6 sm:px-8 py-2 rounded-md hover:bg-blue-50 transition-colors duration-300 font-medium text-sm sm:text-base bg-transparent cursor-pointer underline"
+              >
                 Learn more
               </button>
             </div>

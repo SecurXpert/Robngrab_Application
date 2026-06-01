@@ -1,6 +1,9 @@
+'use client';
+
 import React from "react";
 import { FiArrowRight } from 'react-icons/fi';
 import headerStyles from '@/app/Model/FeaturedJobsHeader.module.css';
+import { useRouter } from 'next/navigation';
 
 const jobs = [
   {
@@ -195,9 +198,13 @@ const Icon = ({ job }) => {
   return <DefaultIcon />;
 };
 
-const JobCard = ({ job }) => {
+const JobCard = ({ job, onClick }) => {
   return (
-    <div className="border rounded p-3  w-[280px] h-[220px]  bg-white shadow-sm hover:shadow-md transition" style={{ border: '1.11px solid #D6DDEB' }}>
+    <div 
+      onClick={onClick}
+      className="border rounded p-3  w-[280px] h-[220px]  bg-white shadow-sm hover:shadow-md transition cursor-pointer" 
+      style={{ border: '1.11px solid #D6DDEB' }}
+    >
       <div className="flex justify-between items-center mb-4">
         <Icon job={job} />
         <span className="border border-blue-500 text-blue-500 text-xs px-2 py-1">
@@ -222,19 +229,28 @@ const JobCard = ({ job }) => {
 };
 
 export default function FeaturedJobs() {
+  const router = useRouter();
+
   return (
     <section className="max-w-6xl mx-auto py-10 mt-1">
       <div className="flex justify-between items-end mb-8">
         <h2 className="text-3xl font-bold">Featured jobs</h2>
-      <button className="flex items-center gap-3 text-[#1D4ED8] text-lg font-semibold hover:gap-4 transition-all ml-6">
-  Show all jobs
-<FiArrowRight className="w-10 h-5" />
-</button>
+        <button 
+          onClick={() => router.push('/jobs')}
+          className="flex items-center gap-3 text-[#1D4ED8] text-lg font-semibold hover:gap-4 transition-all ml-6 cursor-pointer border-none bg-transparent"
+        >
+          Show all jobs
+          <FiArrowRight className="w-10 h-5" />
+        </button>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2  sm:grid-cols-4 gap-x-10 gap-y-5 ">
         {jobs.map((job, index) => (
-          <JobCard key={index} job={job} />
+          <JobCard 
+            key={index} 
+            job={job} 
+            onClick={() => router.push(`/jobs?title=${encodeURIComponent(job.title)}`)}
+          />
         ))}
       </div>
     </section>

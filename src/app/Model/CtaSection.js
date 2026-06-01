@@ -1,8 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function CtaSection() {
+  const router = useRouter();
   return (
     <section className="bg-white py-4 sm:py-6 lg:py-8 px-4 sm:px-6 pb-8">
       <div className="max-w-7xl mx-auto">
@@ -16,7 +18,10 @@ export default function CtaSection() {
               <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 leading-relaxed ml-15">
                 Discover opportunities that match your skills, goals, and ambitions. Start your journey toward a rewarding career today.
               </p>
-              <button className="bg-white text-[#0163D6] px-6 sm:px-8 py-2 sm:py-3 rounded-md hover:bg-gray-100 transition-colors duration-300 font-semibold text-sm sm:text-base border-none cursor-pointer ml-15">
+              <button 
+                onClick={() => router.push('/jobs')}
+                className="bg-white text-[#0163D6] px-6 sm:px-8 py-2 sm:py-3 rounded-md hover:bg-gray-100 transition-colors duration-300 font-semibold text-sm sm:text-base border-none cursor-pointer ml-15"
+              >
                 Search Job
               </button>
             </div>

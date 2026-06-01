@@ -12,10 +12,6 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  // Redirect /super-admin to /super-admin/dashboard
-  if (pathname === '/super-admin') {
-    return NextResponse.redirect(new URL('/super-admin/dashboard', request.url));
-  }
 
   if (pathname === '/candidate/interview-management') {
     return NextResponse.redirect(new URL('/candidate/interview-management/Alex-Rivera', request.url));

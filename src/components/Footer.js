@@ -3,6 +3,7 @@
 import { FiPhone, FiMapPin, FiExternalLink, FiArrowRight } from 'react-icons/fi';
 import { FaFacebook, FaYoutube, FaInstagram, FaTwitter } from 'react-icons/fa';
 import CopyRightSection from '@/components/CopyRightSection';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -45,22 +46,22 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <h4 className="font-bold text-blue-600 mb-6 text-sm tracking-wider">Quick Link</h4>
             <nav className="flex flex-col space-y-3">
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              <Link href="/" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">About</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/contact-us" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Contact</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Pricing</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Blog</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
+              </Link>
             </nav>
           </div>
 
@@ -68,22 +69,22 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <h4 className="font-bold text-blue-600 mb-6 text-sm tracking-wider">Candidate</h4>
             <nav className="flex flex-col space-y-3">
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              <Link href="/jobs" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Browse Jobs</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/jobs" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Browse Employers</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/candidate/dashboard" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Candidate Dashboard</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/candidate/dashboard" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Saved Jobs</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
+              </Link>
             </nav>
           </div>
 
@@ -91,22 +92,22 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <h4 className="font-bold text-blue-600 mb-6 text-sm tracking-wider">Employers</h4>
             <nav className="flex flex-col space-y-3">
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              <Link href="/super-admin" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Post a Job</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/super-admin" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Browse Candidates</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/super-admin" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Employers Dashboard</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
-              <a href="#" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
+              </Link>
+              <Link href="/super-admin" className="group text-slate-600 text-sm py-2  hover:text-blue-600 transition-all duration-300 flex items-center rounded-lg relative">
                 <span className="font-medium whitespace-nowrap transition-transform duration-300 group-hover:translate-x-3">Applications</span>
                 <FiArrowRight className="w-3 h-3 absolute left-0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-              </a>
+              </Link>
             </nav>
           </div>
 

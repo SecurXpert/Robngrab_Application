@@ -209,6 +209,7 @@ export default function RecentJobs({
           <div className="flex items-center gap-8">
             {/* View All Option */}
             <button
+              onClick={() => router.push('/jobs')}
               className="text-md font-medium hover:opacity-80 transition-opacity"
               style={{ borderBottom: '2px solid #0163D6', color: '#0163D6' }}
             >
@@ -346,7 +347,10 @@ export default function RecentJobs({
                   </div>
 
                   {/* Job Details Button */}
-                  <button className="px-4 sm:px-4 py-2 bg-[#0163D6] text-white rounded-lg hover:bg-[#0152b8] transition-colors duration-200 font-medium text-sm sm:text-sm">
+                  <button 
+                    onClick={() => handleJobDetails(job)}
+                    className="px-4 sm:px-4 py-2 bg-[#0163D6] text-white rounded-lg hover:bg-[#0152b8] transition-colors duration-200 font-medium text-sm sm:text-sm"
+                  >
                     Job Details
                   </button>
                 </div>

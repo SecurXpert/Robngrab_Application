@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -15,6 +15,13 @@ export default function CandiateAuth() {
   const [showReenrollMFAModal, setShowReenrollMFAModal] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    const token = localStorage.getItem('superAdminToken');
+    if (token) {
+      router.push('/super-admin/dashboard');
+    }
+  }, [router]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
@@ -23,6 +30,8 @@ export default function CandiateAuth() {
     // Role-based dashboard redirection
     switch (role) {
       case 'super-admin':
+        localStorage.setItem('superAdminToken', 'mock-super-admin-token');
+        localStorage.setItem('superAdminUser', JSON.stringify({ email, role }));
         router.push('/super-admin/dashboard');
         break;
       case 'prime-admin':
