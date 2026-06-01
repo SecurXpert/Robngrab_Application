@@ -23,7 +23,7 @@ export const SectionHeader = ({ title, description, rightSlot }) => (
 export const SettingRow = ({ icon, iconLabel, title, description, actionLabel, actionIcon }) => (
   <div className="flex items-center justify-between py-3">
     <div className="flex items-center gap-3 min-w-0">
-      {icon && <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-600">{icon}</span>}
+      {icon && <span className="inline-flex items-center justify-center shrink-0">{icon}</span>}
       <div className="min-w-2">
         <p className="text-sm font-medium text-slate-900">{title}</p>
         {description && <p className="text-xs text-slate-500 mt-0.5">{description}</p>}

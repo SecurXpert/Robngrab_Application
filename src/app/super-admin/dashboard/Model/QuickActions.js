@@ -4,36 +4,43 @@ import { RiUserSettingsLine } from 'react-icons/ri';
 import { FiPackage, FiActivity } from 'react-icons/fi';
 import { LuBuilding2 } from 'react-icons/lu';
 import { PiArrowRight } from 'react-icons/pi';
+import { useRouter } from 'next/navigation';
 
 export default function QuickActions() {
+  const router = useRouter();
+
   const actions = [
     {
       id: 1,
       icon: RiUserSettingsLine,
       iconColor: 'text-black',
       title: 'Role Management',
-      description: 'Manage user roles and permissions'
+      description: 'Manage user roles and permissions',
+      link: '/super-admin/roles'
     },
     {
       id: 2,
       icon: FiActivity,
       iconColor: 'text-purple-600',
       title: 'View Audit Logs',
-      description: 'Check system activity and logs'
+      description: 'Check system activity and logs',
+      link: '/super-admin/audit'
     },
     {
       id: 3,
       icon: FiPackage,
       iconColor: 'text-green-600',
       title: 'Create Subscription',
-      description: 'Add new subscription plans'
+      description: 'Add new subscription plans',
+      link: '/super-admin/subscription'
     },
     {
       id: 4,
       icon: LuBuilding2,
       iconColor: 'text-orange-600',
       title: 'Add Vendor',
-      description: 'Register new vendor accounts'
+      description: 'Register new vendor accounts',
+      link: '/super-admin/vendor'
     }
   ];
 
@@ -45,6 +52,7 @@ export default function QuickActions() {
         {actions.map((action) => (
           <button
             key={action.id}
+            onClick={() => router.push(action.link)}
             className="w-full flex items-center justify-between p-3 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors"
           >
             <div className="flex items-center">
@@ -62,3 +70,4 @@ export default function QuickActions() {
     </div>
   );
 }
+

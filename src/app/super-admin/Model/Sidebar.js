@@ -54,7 +54,7 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
     { icon: LuLayoutDashboard, label: 'Dashboard', active: currentActivePage === 'dashboard', href: '/super-admin/dashboard' },
     { icon: LuShield, label: 'Roles & Permissions', active: currentActivePage === 'roles', href: '/super-admin/roles' },
     { icon: LuFileText, label: 'Audit Logs', active: currentActivePage === 'audit', href: '/super-admin/audit' },
-    { icon: LuSettings, label: 'Settings', active: currentActivePage === 'settings' , href: '/super-admin/settings' },
+    { icon: LuSettings, label: 'Settings', active: currentActivePage === 'settings', href: '/super-admin/settings' },
   ];
 
   const coreModules = [
@@ -81,19 +81,19 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
   // Logout functionality
   const handleLogout = () => {
     console.log('Super Admin logout initiated');
-    
+
     // Clear any stored authentication data
     if (typeof window !== 'undefined') {
       localStorage.removeItem('superAdminToken');
       localStorage.removeItem('superAdminUser');
       sessionStorage.removeItem('superAdminToken');
       sessionStorage.removeItem('superAdminUser');
-      
+
       console.log('Authentication data cleared');
-      
+
       // Show logout confirmation
       alert('Super Admin logout initiated');
-      
+
       // Redirect to super admin login page
       setTimeout(() => {
         router.push('/super-admin');
@@ -119,11 +119,10 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
                     router.push(item.href);
                     onClose();
                   }}
-                  className={`flex items-center gap-3 px-4 py-3 transition-all duration-200 w-full text-left ${
-                    item.active 
-                      ? 'text-white shadow-lg font-medium' 
+                  className={`flex items-center gap-3 px-4 py-3 transition-all duration-200 w-full text-left ${item.active
+                      ? 'text-white shadow-lg font-medium'
                       : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-medium'
-                  }`}
+                    }`}
                   style={item.active ? { backgroundColor: '#0163D7', borderRadius: '18.89px' } : { borderRadius: '18.89px' }}
                 >
                   <item.icon className="w-5 h-5 flex-shrink-0" />
@@ -132,7 +131,7 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
               ))}
             </div>
             <div className='border-t border-gray-200'></div>
-            
+
             <div className="mb-6 mt-6">
               <p className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
                 Core Modules
@@ -149,11 +148,10 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
                       }
                       onClose();
                     }}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 w-full text-left ${
-                      item.active
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 w-full text-left ${item.active
                         ? 'bg-blue-600 text-white shadow-lg font-medium'
                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-medium'
-                    }`}
+                      }`}
                   >
                     <item.icon className="w-5 h-5 flex-shrink-0" />
                     <span>{item.label}</span>
@@ -162,7 +160,7 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
               </div>
             </div>
           </nav>
-          
+
           <div className="p-4 border-t border-gray-200">
             <button
               onClick={handleLogout}
@@ -178,18 +176,17 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
       {/* Desktop sidebar */}
       <div className="hidden lg:block">
         <div className="fixed left-0 top-18 h-[calc(100vh-4rem)] bg-white border-r border-gray-200 transition-all duration-300 z-40 w-72">
-          <div className="w-72 h-full flex flex-col">            
+          <div className="w-72 h-full flex flex-col">
             <nav className="flex-1 px-4 py-6 overflow-y-auto scrollbar-hide">
               <div className="space-y-2 mb-8">
                 {menuItems.map((item, index) => (
                   <button
                     key={index}
                     onClick={() => router.push(item.href)}
-                    className={`flex items-center gap-3 px-4 py-3 transition-all duration-200 w-full text-left ${
-                      item.active 
-                        ? 'text-white shadow-lg font-medium' 
+                    className={`flex items-center gap-3 px-4 py-3 transition-all duration-200 w-full text-left ${item.active
+                        ? 'text-white shadow-lg font-medium'
                         : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-medium'
-                    }`}
+                      }`}
                     style={item.active ? { backgroundColor: '#0163D7', borderRadius: '18.89px' } : { borderRadius: '18.89px' }}
                   >
                     <item.icon className="w-5 h-5 flex-shrink-0" />
@@ -198,7 +195,7 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
                 ))}
                 <div className='border-t border-gray-200 my-4'></div>
               </div>
-              
+
               <div className="mb-6">
                 <p className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
                   Core Modules
@@ -214,11 +211,10 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
                           console.log(`Navigating to ${item.label}`);
                         }
                       }}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 w-full text-left ${
-                        item.active
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 w-full text-left ${item.active
                           ? 'bg-blue-600 text-white shadow-lg font-medium'
                           : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-medium'
-                      }`}
+                        }`}
                     >
                       <item.icon className="w-5 h-5 flex-shrink-0" />
                       <span>{item.label}</span>
@@ -227,7 +223,7 @@ export default function DashboardSidebar({ isOpen, onClose, activePage = 'Dashbo
                 </div>
               </div>
             </nav>
-            
+
             {/* Logout Button for Desktop */}
             <div className="p-4 border-t border-gray-200">
               <button

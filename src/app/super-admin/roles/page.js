@@ -80,7 +80,7 @@ const rolesData = [
       system: { settings: false, securityLogs: false, technicalSupport: false }
     }
   },
-  
+
 ];
 
 export default function RolesAndPermissions() {
@@ -128,7 +128,7 @@ export default function RolesAndPermissions() {
     });
     setIsCreateModalOpen(false);
   };
-  
+
   return (
     <div className="max-w-7xl mx-auto px-8 py-8 bg-[#F8F9FF]">
       {/* Header section */}
@@ -145,9 +145,9 @@ export default function RolesAndPermissions() {
       {/* Role cards grid */}
       <div className="grid grid-cols-3 gap-6 mb-8">
         {rolesData.map((role) => (
-          <RoleCard 
-            key={role.id} 
-            role={role} 
+          <RoleCard
+            key={role.id}
+            role={role}
             onViewPermissions={handleViewPermissions}
           />
         ))}

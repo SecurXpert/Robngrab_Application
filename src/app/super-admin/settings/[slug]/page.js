@@ -56,7 +56,7 @@ export default function SettingsSlugPage() {
     // Case-insensitive match for path comparisons
     const isCurrent = pathname.toLowerCase() === href.toLowerCase();
     return isCurrent
-      ? 'px-4 py-2 text-sm font-semibold border-b-2 -mb-px text-[#0163D7] border-[#0163D7]'
+      ? 'px-4 py-2 text-sm font-semibold border-b-2 -mb-px text-blue-600 border-blue-600'
       : 'px-4 py-2 text-sm font-medium border-b-2 -mb-px text-slate-500 border-transparent hover:text-slate-700 hover:border-slate-300 transition-colors';
   };
 
@@ -81,12 +81,21 @@ export default function SettingsSlugPage() {
         </div>
 
         {activeSlug === 'security' ? (
-          <div className="max-w-3xl space-y-6 pb-8 border-b-2 border-[#0163D7]">
+          <div className="max-w-3xl space-y-6 pb-8">
             <SectionCard>
               <SectionHeader title="Multi-Factor Authentication" description="Add an extra layer of security to your account." rightSlot={<span className="px-3 py-1 text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-md">Enabled</span>} />
               <div className="px-6 pb-6 pt-2">
                 <div className="rounded-xl border border-slate-200 px-4 py-1 bg-[#F9FAFB]">
-                  <SettingRow icon={<FiSmartphone className="p-3 bg-blue-100 text-blue-600 rounded-full w-12 h-12" />} title="Authenticator App" description="Google Authenticator configured" actionLabel="Reconfigure" />
+                  <SettingRow
+                    icon={
+                      <div className="flex items-center justify-center w-11 h-11 bg-[#E8F0FE] text-slate-800 rounded-xl">
+                        <FiSmartphone className="w-5 h-5" />
+                      </div>
+                    }
+                    title="Authenticator App"
+                    description="Google Authenticator configured"
+                    actionLabel="Reconfigure"
+                  />
                 </div>
               </div>
             </SectionCard>
@@ -94,7 +103,10 @@ export default function SettingsSlugPage() {
             <SectionCard>
               <SectionHeader title="Backup Codes" description="Use these codes to access your account if you lose your authentication device." />
               <div className="px-6 pb-6 pt-2">
-                <button className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium border border-slate-300 bg-white rounded-md hover:bg-slate-50"><LuShield className="w-3 h-3" />View Backup Codes</button>
+                <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-slate-200 bg-white text-slate-800 rounded-xl hover:bg-slate-50 shadow-sm transition-all duration-200">
+                  <LuShield className="w-4 h-4 text-slate-800" />
+                  View Backup Codes
+                </button>
               </div>
             </SectionCard>
 

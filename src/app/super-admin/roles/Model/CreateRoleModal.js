@@ -7,7 +7,7 @@ import { FaCheck } from 'react-icons/fa';
 
 export default function CreateRoleModal({ isOpen, onClose, onSave }) {
   const [roleName, setRoleName] = useState('');
-  const [description, setDescription] = useState(''); 
+  const [description, setDescription] = useState('');
   const [permissions, setPermissions] = useState({
     userManagement: { create: false, edit: false, delete: false, view: false },
     vendorManagement: { create: false, edit: false, delete: false, fullAccess: false },
@@ -15,11 +15,11 @@ export default function CreateRoleModal({ isOpen, onClose, onSave }) {
     system: { settings: false, securityLogs: false, technicalSupport: false, backupRestore: false }
   });
 
-  useEffect(() => {  
+  useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
-                                            
+
   const handlePermissionChange = (category, permission) => {
     setPermissions(prev => ({
       ...prev,
@@ -33,7 +33,7 @@ export default function CreateRoleModal({ isOpen, onClose, onSave }) {
     }
   };
 
-  if (!isOpen) return null; 
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-opacity-50 backdrop-blur-xs z-50 flex items-center justify-center p-4">
@@ -63,13 +63,13 @@ export default function CreateRoleModal({ isOpen, onClose, onSave }) {
             <PermissionSection title="Vendor Management" category="vendorManagement" permissions={permissions.vendorManagement} onChange={handlePermissionChange} />
             <PermissionSection title="Financial" category="financial" permissions={permissions.financial} onChange={handlePermissionChange} />
             <PermissionSection title="System" category="system" permissions={permissions.system} onChange={handlePermissionChange} />
-            
+
             <div className="border rounded-lg p-4 bg-blue-50/50">
               <label className="flex items-center gap-2 cursor-pointer relative">
                 <input
                   type="checkbox"
                   checked={permissions.requireApproval || false}
-                  onChange={() => setPermissions(prev => ({...prev, requireApproval: !prev.requireApproval}))}
+                  onChange={() => setPermissions(prev => ({ ...prev, requireApproval: !prev.requireApproval }))}
                   className="appearance-none rounded border-2 border-blue-200 focus:ring-blue-500 peer checked:bg-blue-600 checked:border-blue-600 transition-colors h-4 w-4"
                 />
                 <FaCheck className="w-3 h-3 absolute left-0.5 pointer-events-none hidden peer-checked:block text-white" />
